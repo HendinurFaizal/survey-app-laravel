@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SurveyController;
+use App\Http\Controllers\VoteController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,15 +21,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', [HomeController::class,'index'])->name('home');
+/** Authentication */
+Route::get('/register', [AuthenticationController::class, 'showRegister'])->name('view.register');
+Route::get('/login', [AuthenticationController::class, 'showLogin'])->name('view.login');
+Route::post('/register', [AuthenticationController::class, 'register'])->name('register');
+Route::post('/login', [AuthenticationController::class, 'login'])->name('login');
 
-Route::get('/questionnaires/create', 'QuestionnaireController@create');
-Route::post('/questionnaires', 'QuestionnaireController@store');
-Route::get('/questionnaires/{questionnaire}', 'QuestionnaireController@show');
+/** Dashboard */
+Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard');
 
-Route::get('/questionnaires/{questionnaire}/questions/create', 'QuestionController@create');
-Route::post('/questionnaires/{questionnaire}/questions', 'QuestionController@store');
-Route::delete('/questionnaires/{questionnaire}/questions/{question}', 'QuestionController@destroy');
+/** Survey */
+Route::get('/survey', [SurveyController::class, 'showCreateSurvey'])->name('view.create.survey');
+Route::get('/survey-response', [SurveyController::class, 'showResponseSurvey'])->name('view.response.survey');
+Route::post('/survey', [SurveyController::class, 'createSurvey'])->name('create.survey');
 
-Route::get('/surveys/{questionnaire}-{slug}', 'SurveyController@show');
-Route::post('/surveys/{questionnaire}-{slug}', 'SurveyController@store');
+/** Vote */
+Route::get('/vote', [VoteController::class, 'showCreateVote'])->name('view.create.vote');
+Route::get('/vote-response', [VoteController::class, 'showResponseVote'])->name('view.response.vote');
+Route::post('/vote', [VoteController::class, 'createVote'])->name('create.vote');
