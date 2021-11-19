@@ -19,13 +19,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('homepage');
 
 /** Authentication */
 Route::get('/register', [AuthenticationController::class, 'showRegister'])->name('view.register');
 Route::get('/login', [AuthenticationController::class, 'showLogin'])->name('view.login');
 Route::post('/register', [AuthenticationController::class, 'register'])->name('register');
 Route::post('/login', [AuthenticationController::class, 'login'])->name('login');
+Route::post('/logout', [AuthenticationController::class, 'logout'])->name('logout');
 
 /** Dashboard */
 Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard');
