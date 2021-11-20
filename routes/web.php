@@ -35,8 +35,10 @@ Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('d
 Route::get('/survey', [SurveyController::class, 'showCreateSurvey'])->name('view.create.survey');
 Route::get('/survey-response', [SurveyController::class, 'showResponseSurvey'])->name('view.response.survey');
 Route::post('/survey', [SurveyController::class, 'createSurvey'])->name('create.survey');
+Route::post('/survey-response', [SurveyController::class, 'responseSurvey'])->name('response.survey');
 
 /** Vote */
 Route::get('/vote', [VoteController::class, 'showCreateVote'])->name('view.create.vote');
-Route::get('/vote-response', [VoteController::class, 'showResponseVote'])->name('view.response.vote');
+Route::get('/vote-response/{id}', [VoteController::class, 'showResponseVote'])->name('view.response.vote');
 Route::post('/vote', [VoteController::class, 'createVote'])->name('create.vote');
+Route::post('/vote-response/{id}', [VoteController::class, 'responseVote'])->name('response.vote');
