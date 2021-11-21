@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class AuthenticationController extends Controller
@@ -28,18 +29,19 @@ class AuthenticationController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('login')->with('error', 'Gunakan email yang valid dan panjang password minimal 8 karakter!');
+            return redirect('login')->with('error', '❗ Gunakan email yang valid dan panjang password minimal 8 karakter!');
         }
 
         $newUser = new User();
         $newUser->name = $request->name;
         $newUser->email = $request->email;
-        $newUser->password = $request->password;
+        $newUser->password = Hash::make($request->password);
 
         try {
-            return redirect()->route('login');
+            $newUser->save();
+            return redirect('login')->with('success', 'Berhasil mendaftarkan akun COBLOS!');
         } catch (\Throwable $th) {
-            return redirect('login')->with('error', 'Gagal membuat akun baru!');
+            return redirect('login')->with('error', '❗ Gagal membuat akun baru!');
         }
     }
 
@@ -51,14 +53,20 @@ class AuthenticationController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('login')->with('error', 'Gunakan email yang valid dan panjang password minimal 8 karakter!');
+            return redirect()->route('login')->with('error', '❗ Gunakan email yang valid dan panjang password minimal 8 karakter!');
+        }
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!Hash::check($request->password, $user->password, [])) {
+            return back()->withInput($request->only('email', 'remember'))->with('error', '❗ Passeord Anda salah!');
         }
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             return redirect()->route('dashboard');
         }
 
-        return back()->withInput($request->only('email', 'remember'))->with('error', 'Anda belum terdaftar di COBLOS!');
+        return back()->withInput($request->only('email', 'remember'))->with('error', '❗ Anda belum terdaftar di COBLOS!');
     }
 
     public function logout(Request $request)
@@ -68,6 +76,6 @@ class AuthenticationController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('homepage')->with('success', 'Logout berhasil! Sampai jumpa di lain waktu👋😁👋');
+        return redirect()->route('homepage')->with('success', 'Logout berhasil! Sampai jumpa lain waktu👋😁👋');
     }
 }
