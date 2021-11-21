@@ -16,7 +16,7 @@ class VoteController extends Controller
         if (Auth::check()) {
             return view('vote/createVote');
         } else {
-            return redirect('auth/login')->with('error', '❌ Anda belum login!');
+            return redirect('login')->with('error', '❌ Anda belum login!');
         }
     }
 
