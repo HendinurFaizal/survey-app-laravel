@@ -49,19 +49,21 @@
                     <tr>
                         <th>🔢 ID</th>
                         <th>📗 Judul</th>
-                        <th>🚩 Pertanyaan</th>
+                        <th>🚩 Deskripsi</th>
+                        <th>⭐ Link</th>
                     </tr>
-                    @if ($votes->isNotEmpty())
-                        @foreach ($votes as $vote)
+                    @if ($surveys->isNotEmpty())
+                        @foreach ($surveys as $survey)
                             <tr>
-                                <td>{{ $vote->id }}</td>
-                                <td>{{ $vote->title }}</td>
-                                <td>{{ $vote->question }}</td>
+                                <td>{{ $survey->id }}</td>
+                                <td>{{ $survey->title }}</td>
+                                <td><a href="{{ route('view.survey', $survey->id) }}">{{ $survey->description }}</a></td>
+                                <td><a href="{{ $survey->publicPath() }}">{{ $survey->publicPath() }}</a></td>
                                 <td>
                                     <a class="btn btn-sm btn-info my-1" style="color: #F6F5FC"
-                                        href="edit-vote/{{ $vote->id }}">🔧Edit</a>
+                                        href="edit-survey/{{ $survey->id }}">🔧Edit</a>
                                     <a class="btn btn-danger btn-sm" style="color: #F6F5FC"
-                                        href="delete-vote/{{ $vote->id }}">🗑️Hapus</a>
+                                        href="delete-survey/{{ $survey->id }}">🗑️Hapus</a>
                                 </td>
                             </tr>
                         @endforeach
