@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SurveyController;
+use App\Http\Controllers\SurveyQuestionController;
 use App\Http\Controllers\VoteController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,10 +34,15 @@ Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('d
 
 /** Survey */
 Route::get('/survey', [SurveyController::class, 'showCreateSurvey'])->name('view.create.survey');
+Route::get('/survey/{id}', [SurveyController::class, 'showSurvey'])->name('view.survey');
 Route::get('/survey-response', [SurveyController::class, 'showResponseSurvey'])->name('view.response.survey');
 Route::get('/survey/success', [SurveyController::class, 'showSuccessSurvey'])->name('view.success.survey');
 Route::post('/survey', [SurveyController::class, 'createSurvey'])->name('create.survey');
 Route::post('/survey-response', [SurveyController::class, 'responseSurvey'])->name('response.survey');
+
+/** Questions */
+Route::get('/survey/{id}/questions', [SurveyQuestionController::class, 'showCreateQuestion']);
+Route::post('/survey/{id}/questions', [SurveyQuestionController::class, 'createQuestion']);
 
 /** Vote */
 Route::get('/vote', [VoteController::class, 'showCreateVote'])->name('view.create.vote');
