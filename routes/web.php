@@ -40,5 +40,6 @@ Route::post('/survey-response', [SurveyController::class, 'responseSurvey'])->na
 /** Vote */
 Route::get('/vote', [VoteController::class, 'showCreateVote'])->name('view.create.vote');
 Route::get('/vote-response/{id}', [VoteController::class, 'showResponseVote'])->name('view.response.vote');
+Route::get('/vote/success', [VoteController::class, 'showSuccessVote'])->name('view.success.vote');
 Route::post('/vote', [VoteController::class, 'createVote'])->name('create.vote');
 Route::post('/vote-response/{id}', [VoteController::class, 'responseVote'])->name('response.vote');

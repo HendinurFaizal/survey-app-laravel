@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Vote extends Model
 {
@@ -18,4 +19,9 @@ class Vote extends Model
         'user_id',
         'question',
     ];
+
+    public function publicPath()
+    {
+        return url('/vote-response/' . $this->id . '-' . Str::slug($this->title));
+    }
 }

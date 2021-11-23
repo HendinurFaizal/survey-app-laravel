@@ -40,6 +40,70 @@
                 <button class="nav-link fs-5 fw-bold btn btn-sm btn-danger"><span
                         class="text-light ">Keluar</span></button>
             </form>
+
+            <div class="card-header fw-bold fs-2 mt-5">
+                <h5 class="text-danger fw-bold mt-3">List Survey</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-stripped">
+                    <tr>
+                        <th>🔢 ID</th>
+                        <th>📗 Judul</th>
+                        <th>🚩 Pertanyaan</th>
+                    </tr>
+                    @if ($votes->isNotEmpty())
+                        @foreach ($votes as $vote)
+                            <tr>
+                                <td>{{ $vote->id }}</td>
+                                <td>{{ $vote->title }}</td>
+                                <td>{{ $vote->question }}</td>
+                                <td>
+                                    <a class="btn btn-sm btn-info my-1" style="color: #F6F5FC"
+                                        href="edit-vote/{{ $vote->id }}">🔧Edit</a>
+                                    <a class="btn btn-danger btn-sm" style="color: #F6F5FC"
+                                        href="delete-vote/{{ $vote->id }}">🗑️Hapus</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @else
+                        <div>
+                            <p class="card-text">Tidak ada voting!</p>
+                        </div>
+                    @endif
+                </table>
+            </div>
+
+            <div class="card-header fw-bold fs-2 mt-5">
+                <h5 class="text-success fw-bold mt-3">List Voting</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-stripped">
+                    <tr>
+                        <th>🔢 ID</th>
+                        <th>📗 Judul</th>
+                        <th>❓ Pertanyaan</th>
+                        <th>⭐ Link</th>
+                    </tr>
+                    @if ($votes->isNotEmpty())
+                        @foreach ($votes as $vote)
+                            <tr>
+                                <td>{{ $vote->id }}</td>
+                                <td>{{ $vote->title }}</td>
+                                <td>{{ $vote->question }}</td>
+                                <td><a href="{{ $vote->publicPath() }}">{{ $vote->publicPath() }}</a></td>
+                                <td>
+                                    <a class="btn btn-sm btn-info my-1" style="color: #F6F5FC" href="#">🔧Edit</a>
+                                    <a class="btn btn-danger btn-sm" style="color: #F6F5FC" href="#">🗑️Hapus</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @else
+                        <div>
+                            <p class="card-text">Tidak ada voting!</p>
+                        </div>
+                    @endif
+                </table>
+            </div>
         </div>
     </div>
 </body>

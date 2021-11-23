@@ -27,7 +27,12 @@ class VoteController extends Controller
         $question = $vote->question;
         $options = VoteOption::where('vote_id', $vote->id)->get();
 
-        return view('vote/responseVote', compact('title', 'question', 'options'));
+        return view('vote/responseVote', compact('title', 'question', 'options', 'vote'));
+    }
+
+    public function showSuccessVote(Request $request)
+    {
+        return view('vote/successVote');
     }
 
     public function createVote(Request $request)
@@ -81,19 +86,19 @@ class VoteController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->with('error', 'Pastikan mengisi data voter dengan benar!');
+            return redirect()->back()->with('error', 'Silakan isi voting dengan lengkap!');
         }
 
         $vote = Vote::where('id', $id)->first();
         $choice = VoteOption::where('vote_id', $vote->id)->where('option', $request->option)->first();
-
+        
         $newVoteAnswer = new VoteAnswer();
         $newVoteAnswer->vote_option_id = $choice->id;
         $newVoteAnswer->email = $request->email;
 
         try {
             $newVoteAnswer->save();
-            return redirect('vote/successVote');
+            return redirect()->route('view.success.vote');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', 'Gagal melakukan voting!');
         }
