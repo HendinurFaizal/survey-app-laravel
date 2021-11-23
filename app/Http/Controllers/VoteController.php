@@ -44,14 +44,14 @@ class VoteController extends Controller
         }
 
         $newVote = new Vote();
-        $newVote->user_id = $request->user()->id;
         $newVote->title = $request->title;
+        $newVote->user_id = $request->user()->id;
         $newVote->question = $request->question;
 
         try {
-            $newVote->update();
+            $newVote->save();
         } catch (\Throwable $th) {
-            return redirect()->back()->with('error', 'Gagal membuat voting!');
+            return redirect()->back()->with('error', 'Gagal membuat voting!')->withInput($request->only('title', 'question'));
         }
 
         $newVoteOption1 = new VoteOption();
@@ -63,8 +63,8 @@ class VoteController extends Controller
         $newVoteOption2->option = $request->option2;
 
         try {
-            $newVoteOption1->update();
-            $newVoteOption2->update();
+            $newVoteOption1->save();
+            $newVoteOption2->save();
             return redirect()->route('dashboard')->with('success', '✔️ Voting berhasil dibuat!');
         } catch (\Throwable $th) {
             $newVoteOption1->delete();
@@ -92,7 +92,7 @@ class VoteController extends Controller
         $newVoteAnswer->email = $request->email;
 
         try {
-            $newVoteAnswer->update();
+            $newVoteAnswer->save();
             return redirect('vote/successVote');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', 'Gagal melakukan voting!');
