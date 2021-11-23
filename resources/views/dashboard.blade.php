@@ -29,9 +29,16 @@
         <div class="body">
             <h5 class="text-secondary fw-bold">Selamat Datang <span class="text-dark">{{ $user }} 😀</span>
             </h5>
+            <h5 class="text-secondary fw-bold">Dashboard</h5>
+            <a href="{{ route('dashboard') }}" class="btn btn-primary mb-2">Dashboard</a>
+            <h5 class="text-secondary fw-bold">Bikin Survey!</h5>
+            <a href="{{ route('view.create.survey') }}" class="btn btn-primary mb-2">Buat Survey</a>
+            <h5 class="text-secondary fw-bold">Bikin Voting!</h5>
+            <a href="{{ route('view.create.vote') }}" class="btn btn-primary mb-2">Buat Voting</a>
             <form method="POST" autocomplete="on" action="{{ route('logout') }}">
                 @csrf
-                <button class="nav-link fs-5 fw-bold btn btn-sm btn-danger"><span class="text-light ">Keluar</span></button>
+                <button class="nav-link fs-5 fw-bold btn btn-sm btn-danger"><span
+                        class="text-light ">Keluar</span></button>
             </form>
         </div>
     </div>
