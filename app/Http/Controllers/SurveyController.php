@@ -21,4 +21,9 @@ class SurveyController extends Controller
         $status = "Create survey success";
         return json_decode($status);
     }
+
+    public function showSuccessSurvey(Request $request)
+    {
+        return view('survey/successSurvey');
+    }
 }

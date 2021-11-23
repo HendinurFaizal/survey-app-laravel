@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Vote | COBLOS</title>
+    <title>Survey | COBLOS</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="PPL, Form, tugas, praktikum, proyek perangkat lunak, informatika, undip, universitas diponegoro"
@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    Thank you for your vote!
+    Thank you for your survey!
 </body>
 
 </html>
