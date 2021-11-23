@@ -41,6 +41,8 @@
                     </ul>
                 </div>
             @endforeach
+            <br>
+            <a class="btn btn-secondary m-3" style="float: left" href="{{ route('dashboard') }}">Kembali</a>
         </div>
     </div>
 </body>

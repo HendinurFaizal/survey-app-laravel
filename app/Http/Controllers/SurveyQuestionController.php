@@ -29,9 +29,9 @@ class SurveyQuestionController extends Controller
         // }
 
         $question = $id->questions()->create($validator['question']);
-        $question->answer()->createMany($validator['answers']);
+        $question->answers()->createMany($validator['answers']);
 
-        return redirect('/survey/showSurvey' . $id->id);
-        // return redirect()->route('view.survey');
+        // return redirect('/survey/showSurvey' . $id->id);
+        return redirect()->route('view.survey', $id->id);
     }
 }
