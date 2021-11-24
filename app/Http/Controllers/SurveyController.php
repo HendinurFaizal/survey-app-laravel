@@ -14,9 +14,9 @@ class SurveyController extends Controller
         return view('survey/createSurvey');
     }
 
-    public function showResponseSurvey(Request $request)
+    public function showResponseSurvey(Request $request, Survey $id)
     {
-        return view('survey/responseSurvey');
+        return view('survey/responseSurvey', compact('id'));
     }
 
     public function createSurvey(Request $request)
@@ -25,10 +25,6 @@ class SurveyController extends Controller
             'title' => 'required | string',
             'description' => 'string',
         ]);
-
-        // if ($validator->fails()) {
-        //     return redirect()->back()->with('error', 'Pastikan mengisi data survey dengan benar!');
-        // }
 
         $survey = auth()->user()->survey()->create($validator);
 
@@ -43,6 +39,20 @@ class SurveyController extends Controller
 
     public function showSuccessSurvey(Request $request)
     {
+        return view('survey/successSurvey');
+    }
+
+    public function responseSurvey(Request $request, Survey $id)
+    {
+        $validator = request()->validate([
+            'responses.*.survey_answer_id' => 'required',
+            'responses.*.survey_question_id' => 'required',
+            'survey.email' => 'required',
+        ]);
+
+        $answers = $id->answers()->create($validator['survey']);
+        $answers->responses()->createMany($validator['responses']);
+
         return view('survey/successSurvey');
     }
 }
