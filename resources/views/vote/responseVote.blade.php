@@ -38,7 +38,7 @@
                             </div>
                         @endif
                         <div class="card-body" style="background-color: rgb(193, 253, 253)">
-                            <label for="email">Your Email</label>
+                            <label for="email">Email</label>
                             <input type="email" name="email" class="form-control" id="email"
                                 placeholder="Email Address">
                         </div>
