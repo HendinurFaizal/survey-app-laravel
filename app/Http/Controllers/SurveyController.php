@@ -36,7 +36,7 @@ class SurveyController extends Controller
     {
         $survey = Survey::where('id', $survei->id)->first();
         $deskripsi = $survey->description;
-        $survei->load('questions.answers');
+        $survei->load('questions.answers.responses');
         return view('survey/showSurvey', compact('survei', 'deskripsi'));
     }
 
