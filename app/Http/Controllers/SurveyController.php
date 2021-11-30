@@ -14,9 +14,9 @@ class SurveyController extends Controller
         return view('survey/createSurvey');
     }
 
-    public function showResponseSurvey(Request $request, Survey $id)
+    public function showResponseSurvey(Request $request, Survey $survei)
     {
-        return view('survey/responseSurvey', compact('id'));
+        return view('survey/responseSurvey', compact('survei'));
     }
 
     public function createSurvey(Request $request)
@@ -28,13 +28,16 @@ class SurveyController extends Controller
 
         $survey = auth()->user()->survey()->create($validator);
 
-        return redirect('/survey/createSurvey/' . $survey->id);
+        // return redirect('/survey/showSurvey/' . $survey->id);
+        return redirect()->route('dashboard');
     }
 
-    public function showSurvey(Survey $id)
+    public function showSurvey(Survey $survei)
     {
-        $id->load('questions.answers');
-        return view('survey/showSurvey', compact('id'));
+        $survey = Survey::where('id', $survei->id)->first();
+        $deskripsi = $survey->description;
+        $survei->load('questions.answers');
+        return view('survey/showSurvey', compact('survei', 'deskripsi'));
     }
 
     public function showSuccessSurvey(Request $request)
@@ -42,7 +45,7 @@ class SurveyController extends Controller
         return view('survey/successSurvey');
     }
 
-    public function responseSurvey(Request $request, Survey $id)
+    public function responseSurvey(Request $request, Survey $survei)
     {
         $validator = request()->validate([
             'responses.*.survey_answer_id' => 'required',
@@ -50,7 +53,7 @@ class SurveyController extends Controller
             'survey.email' => 'required',
         ]);
 
-        $answers = $id->answers()->create($validator['survey']);
+        $answers = $survei->answers()->create($validator['survey']);
         $answers->responses()->createMany($validator['responses']);
 
         return view('survey/successSurvey');

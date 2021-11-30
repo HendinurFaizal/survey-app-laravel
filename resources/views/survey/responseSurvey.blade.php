@@ -28,8 +28,8 @@
         <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="card" style="background-color: rgb(229, 243, 241)">
-                    <h2 class="text-normal fw-bold m-3">{{ $id->title }}</h2>
-                    <form action="{{ route('response.survey', $id->id) }}" , method="POST"
+                    <h2 class="text-normal fw-bold m-3">{{ $survei->title }}</h2>
+                    <form action="{{ route('response.survey', $survei->id) }}" , method="POST"
                         class="navbar-search navbar-search-light form-inline mr-sm-3">
                         @csrf
                         @if (Session::has('error'))
@@ -37,17 +37,16 @@
                                 {{ Session::get('error') }}
                             </div>
                         @endif
-                        <div class="card-header" style="background-color: rgb(193, 253, 253)">{{ $id->description }}
-                        </div>
-                        <div class="card-body" style="background-color: rgb(193, 253, 253)">
-                            <label for="email">Email</label>
+                        <div class="card-body" style="background-color: rgb(228, 252, 252)">
+                            <p>{{ $survei->description }}</p>
+                            <label for="email" style="font-weight: bold">Email</label>
                             <input type="email" name="survey[email]" class="form-control" id="email"
                                 placeholder="Email Address" value="{{ old('email') }}">
                         </div>
                         <br>
 
-                        @foreach ($id->questions as $key => $question)
-                            <div class="card-header fw-bold fs-4 mb-2"><strong>{{ $key + 1 }}</strong>
+                        @foreach ($survei->questions as $key => $question)
+                            <div class="card-header fs-4 mb-2"><strong>{{ $key + 1 }}.</strong>
                                 {{ $question->question }}</div>
                             <div class="card-body mt-3">
                                 <ul class="list-group">
@@ -71,7 +70,7 @@
                         @endforeach
 
                 </div>
-                <button type="submit" class="btn btn-success m-3" style="float: right">Kirim</button>
+                <button type="submit" class="btn btn-success m-3" style="float: right">⏩ Kirim</button>
                 </form>
             </div>
         </div>

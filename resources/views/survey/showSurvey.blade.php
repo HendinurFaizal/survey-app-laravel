@@ -25,13 +25,11 @@
 <body style="background-color: #1427d6">
     <div class="container mt-5">
         <div class="card row justify-content-center">
-            <div class="card-header fw-bold fs-4 mb-2">{{ $id->title }}</div>
-            <div class="card-body">
-                <p class="fs-5 fw-bold mb-2">Tambah Pertanyaan</p>
-                <a class="btn btn-dark" href="/survey/{{ $id->id }}/questions">Tambah</a>
-            </div>
+            <div class="card-header fw-bold fs-3 mb-1">{{ $survei->title }}</div>
+            <div class="card-body fs-6 mb-2">{{ $deskripsi }}</div>
+            <hr>
 
-            @foreach ($id->questions as $question)
+            @foreach ($survei->questions as $question)
                 <div class="card-header fw-bold fs-4 mb-2">{{ $question->question }}</div>
                 <div class="card-body mt-3">
                     <ul class="list-group">
@@ -42,7 +40,13 @@
                 </div>
             @endforeach
             <br>
-            <a class="btn btn-secondary m-3" style="float: left" href="{{ route('dashboard') }}">Kembali</a>
+            <div class="container">
+                <div class="container" >
+                    <a class="btn btn-success m-2" href="/survey/{{ $survei->id }}/questions" style="float: right">➕ Tambah</a>
+                    <p class="fs-5 fw-bold m-2" style="float: right">Tambah Pertanyaan ⏩</p>
+                </div>
+                <a class="btn btn-warning m-3 mt-4" style="float: left" href="{{ route('dashboard') }}">↩ Kembali</a>
+            </div>
         </div>
     </div>
 </body>

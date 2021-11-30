@@ -53,14 +53,14 @@
                             <label for="title" class="col-sm-2 col-form-label">Judul : </label>
                             <div class="col-sm-10">
                                 <input type="text" name="title" id="title" class="form-control"
-                                    placeholder="Masukkan nama voting" required /><br>
+                                    placeholder="Masukkan nama survey" required /><br>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="description" class="col-sm-2 col-form-label">Deskripsi : </label>
                             <div class="col-sm-10">
                                 <input type="text" name="description" id="description" class="form-control"
-                                    placeholder="Masukkan nama voting" required /><br>
+                                    placeholder="Masukkan nama survey" required /><br>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary m-1" style="float: right">Buat</button>
