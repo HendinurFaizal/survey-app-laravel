@@ -91,7 +91,7 @@
                             <tr>
                                 <td>{{ $vote->id }}</td>
                                 <td>{{ $vote->title }}</td>
-                                <td>{{ $vote->question }}</td>
+                                <td><a href="{{ route('view.vote', $survey->id) }}">{{ $vote->question }}</a></td>
                                 <td><a href="{{ $vote->publicPath() }}">{{ $vote->publicPath() }}</a></td>
                                 <td>
                                     <a class="btn btn-sm btn-info my-1" style="color: #F6F5FC" href="#">🔧Edit</a>

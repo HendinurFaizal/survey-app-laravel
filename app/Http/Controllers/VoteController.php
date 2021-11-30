@@ -20,6 +20,15 @@ class VoteController extends Controller
         }
     }
 
+    public function showVote(Request $request, $id)
+    {
+        $vote = Vote::where('id', $id)->first();
+        $options = VoteOption::where('vote_id', $vote->id)->get();
+        $option1 = VoteAnswer::where('vote_option_id', $options[0]->id)->count();
+        $option2 = VoteAnswer::where('vote_option_id', $options[1]->id)->count();
+        return view('vote/showVote', compact('vote', 'options', 'option1', 'option2'));
+    }
+
     public function showResponseVote(Request $request, $id)
     {
         $vote = Vote::where('id', $id)->first();
@@ -91,7 +100,7 @@ class VoteController extends Controller
 
         $vote = Vote::where('id', $id)->first();
         $choice = VoteOption::where('vote_id', $vote->id)->where('option', $request->option)->first();
-        
+
         $newVoteAnswer = new VoteAnswer();
         $newVoteAnswer->vote_option_id = $choice->id;
         $newVoteAnswer->email = $request->email;
