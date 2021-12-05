@@ -14,19 +14,35 @@
     <meta name="title" content="Kelas A" />
     <meta name="description" content="Tugas Mini Project PPL Kelas A" />
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    <!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="../../vendor/sb-survey/images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/css/util.css">
+        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/css/main.css">
+    <!--===============================================================================================-->
 </head>
 
-<body style="background-color: #1427d6">
-    <div class="container mt-5">
-        <div class="card">
-            <div class="card-header fw-bold fs-4">Buat Pertanyaan Baru</div>
-            <div class="card-body">
+<body>
+    <div class="container-contact100">
+		<div class="wrap-contact100">
+                <span class="contact100-form-title">
+					Buat Pertanyaan Baru
+				</span>
+            <div class="wrap-input100 validate-input">
                 <br>
                 <form action="/survey/{{ $id->id }}/questions" autocomplete="on" method="post">
                     @csrf
@@ -50,9 +66,9 @@
 
                     <table class="table">
                         <div class="form-group row">
-                            <label for="question" class="col-sm-2 fs-5 col-form-label">Pertanyaan : </label>
+                            <label for="question" class="label-input100">Pertanyaan : </label>
                             <div class="col-sm-10">
-                                <input type="text" name="question[question]" id="question" class="form-control"
+                                <input type="text" name="question[question]" id="question" class="input100"
                                     placeholder="Masukkan pertanyaan" required
                                     value="{{ old('question.question') }}" /><br>
                             </div>
@@ -62,40 +78,59 @@
                             <fieldset>
                                 <legend>Pilihan</legend>
                                 <div>
-                                    <div class="form-group">
+                                    <div class="wrap-input100 validate-input">
                                         <label for="answer1">Jawaban 1</label>
-                                        <input name="answers[][answer]" type="text" class="form-control" id="answer1"
+                                        <input name="answers[][answer]" type="text" class="input100" id="answer1"
                                             placeholder="Masukkan Pilihan 1" value="{{ old('answers.0.answer') }}" />
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="form-group">
+                                    <div class="wrap-input100 validate-input">
                                         <label for="answer2">Jawaban 2</label>
-                                        <input name="answers[][answer]" type="text" class="form-control" id="answer2"
+                                        <input name="answers[][answer]" type="text" class="input100" id="answer2"
                                             placeholder="Masukkan Pilihan 2" value="{{ old('answers.1.answer') }}" />
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="form-group">
+                                    <div class="wrap-input100 validate-input">
                                         <label for="answer3">Jawaban 3</label>
-                                        <input name="answers[][answer]" type="text" class="form-control" id="answer3"
+                                        <input name="answers[][answer]" type="text" class="input100" id="answer3"
                                             placeholder="Masukkan Pilihan 3" value="{{ old('answers.2.answer') }}" />
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="form-group">
+                                    <div class="wrap-input100 validate-input">
                                         <label for="answer4">Jawaban 4</label>
-                                        <input name="answers[][answer]" type="text" class="form-control" id="answer4"
+                                        <input name="answers[][answer]" type="text" class="input100" id="answer4"
                                             placeholder="Masukkan Pilihan 4" value="{{ old('answers.3.answer') }}" />
                                     </div>
                                 </div>
                             </fieldset>
                         </div>
-
-                        <div class="mt-3">
-                            <button type="submit" class="btn btn-primary m-1" style="float: right">Tambah</button>
-                            <a class="btn btn-secondary ms-2 m-1" style="float: left"
-                            href="{{ route('dashboard') }}">Kembali</a>
+                        <div class="container-contact100-form-btn">
+                            <div class="wrap-contact100-form-btn">
+                                <div class="contact100-form-bgbtn"></div>
+                                <button type="submit" class="contact100-form-btn">
+                                    <span><a>
+                                        Tambah<a>
+                                        <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="container-contact100-form-btn">
+                            <div class="wrap-contact100-form-btn">
+                                <div class="contact100-form-bgbtn"></div>
+                                <button class="contact100-form-btn">
+                                
+                                    <span><a href="{{ route('dashboard') }}">
+                                        Kembali
+                                        <i class="fa fa-long-arrow-left m-l-7" aria-hidden="true"></i>
+                                    </a>
+                                    </span>
+                                
+                                </button>
+                            </div>
                         </div>
                     </table>
                 </form>
@@ -103,5 +138,26 @@
         </div>
     </div>
 </body>
-
+<!--===============================================================================================-->
+<script src="../../vendor/sb-survey/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../../vendor/sb-survey/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../../vendor/sb-survey/vendor/bootstrap/js/popper.js"></script>
+	<script src="../../vendor/sb-survey/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../../vendor/sb-survey/vendor/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="../../vendor/sb-survey/vendor/daterangepicker/moment.min.js"></script>
+	<script src="../../vendor/sb-survey/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="../../vendor/sb-survey/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="../../vendor/sb-survey/js/main.js"></script>
 </html>

@@ -21,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('homepage');
+Route::get('/welcome-coba', function () {
+    return view('welcome-coba');
+})->name('homepage');
 
 /** Authentication */
 Route::get('/register', [AuthenticationController::class, 'showRegister'])->name('view.register');
