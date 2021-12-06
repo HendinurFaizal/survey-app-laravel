@@ -1,56 +1,78 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <title>COBLOS</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta content="PPL, Form, tugas, praktikum, proyek perangkat lunak, informatika, undip, universitas diponegoro"
-        name="keywords" />
-    <meta content="Tugas Mini Project PPL Kelas A" name="description" />
-    <meta property="og:title" content="Kelas A" />
-    <meta property="og:description" content="Tugas Mini Project PPL Kelas A" />
-    <meta name="title" content="Kelas A" />
-    <meta name="description" content="Tugas Mini Project PPL Kelas A" />
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-</head>
-
-<body>
-    <div class="container">
-        <div class="card-body">
-            @if (Session::has('success'))
-                <div class="alert alert-success">
-                    {{ Session::get('success') }}
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>One Page Wonder - Start Bootstrap Template</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="vendor/sb-page/css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+            <div class="container px-5">
+                <a class="navbar-brand" href="#page-top">COBLOS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        
+                        <li class="nav-item"><a class="nav-link" href="#about">Tentang Kami</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="{{ route('login') }}">Sign In</a></li>
+                    </ul>
                 </div>
-            @endif
-            @if (Session::has('error'))
-                <div class="alert alert-danger">
-                    {{ Session::get('error') }}
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="masthead text-center text-white">
+            <div class="masthead-content">
+                <div class="container px-5">
+                    <h1 class="masthead-heading mb-0">COBLOS</h1>
+                    <h2 class="masthead-subheading mb-0">Your Survey and Voting Buddy</h2>
+                    <a class="btn btn-primary btn-xl rounded-pill mt-5 " href="{{ route('register') }}">Sign Up</a>
                 </div>
-            @endif
-        </div>
-        <h2>Home</h2>
-        <br>
-        <div class="body">
-            <h5 class="text-secondary fw-bold">Daftar Jadi Surveyor!</h5>
-            <a href="{{ route('register') }}" class="btn btn-primary mb-3">Register</a>
-            <h5 class="text-secondary fw-bold">Masuk!</h5>
-            <a href="{{ route('login') }}" class="btn btn-primary mb-2">Login</a>
-            <h5 class="text-secondary fw-bold">Dashboard</h5>
-            <a href="{{ route('dashboard') }}" class="btn btn-primary mb-2">Dashboard</a>
-            <h5 class="text-secondary fw-bold">Bikin Survey!</h5>
-            <a href="{{ route('view.create.survey') }}" class="btn btn-primary mb-2">Buat Survey</a>
-            <h5 class="text-secondary fw-bold">Bikin Voting!</h5>
-            <a href="{{ route('view.create.vote') }}" class="btn btn-primary mb-2">Buat Voting</a>
-        </div>
-    </div>
-</body>
+            </div>
+            <div class="bg-circle-1 bg-circle"></div>
+            <div class="bg-circle-2 bg-circle"></div>
+            <div class="bg-circle-3 bg-circle"></div>
+            <div class="bg-circle-4 bg-circle"></div>
+        </header>
 
+
+
+
+        <!-- Content section 1-->
+        <section id="about">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="vendor/sb-page/assets/img/01.jpg" alt="..." /></div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <h2 class="display-4">Tentang Kami</h2>
+                            <p>Kami adalah penyedia layanan untuk survey dan voting yang memudahkan pengguna mengolah banyak survey dan voting sekaligus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer-->
+        <footer class="py-5 bg-black">
+            <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; Your Website 2021</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="vendor/sb-page/js/scripts.js"></script>
+    </body>
 </html>

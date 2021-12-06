@@ -14,18 +14,33 @@
     <meta name="title" content="Kelas A" />
     <meta name="description" content="Tugas Mini Project PPL Kelas A" />
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href="../../vendor/sb-survey/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/css/main.css">
+<!--===============================================================================================-->
 </head>
 
 <body>
-    <div class="container mt-5">
-        <div class="card">
-            <div class="card-header fw-bold fs-4">Buat Voting Baru</div>
+    <div class="container-contact100">
+		<div class="wrap-contact100">
+            
+            <span class="contact100-form-title">Buat Voting Baru</span>
             <div class="card-body">
                 <br>
                 <form action="{{ route('create.vote') }}" autocomplete="on" method="post">
@@ -50,41 +65,84 @@
 
                     <table class="table">
                         <div class="form-group row">
-                            <label for="nama" class="col-sm-2 col-form-label">Judul : </label>
-                            <div class="col-sm-10">
-                                <input type="text" name="title" id="title" class="form-control"
+                            <label for="nama" class="col-sm-2 col-form-label">Judul:</label>
+                            <div class="wrap-input100 validate-input">
+                                <input type="text" name="title" id="title" class="input100"
                                     placeholder="Masukkan nama voting" required /><br>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="nama" class="col-sm-2 col-form-label">Pertanyaan : </label>
-                            <div class="col-sm-10">
-                                <input type="text" name="question" id="question" class="form-control"
+                            <label for="nama" class="col-sm-2 col-form-label">Pertanyaan:</label>
+                            <div class="wrap-input100 validate-input">
+                                <input type="text" name="question" id="question" class="input100"
                                     placeholder="Masukkan pertanyaan" required /><br>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="nama" class="col-sm-2 col-form-label">Pilihan 1 : </label>
-                            <div class="col-sm-10">
-                                <input type="text" name="option1" id="option1" class="form-control"
+                            <label for="nama" class="col-sm-2 col-form-label">Pilihan1:</label>
+                            <div class="wrap-input100 validate-input">
+                                <input type="text" name="option1" id="option1" class="input100"
                                     placeholder="Masukkan pilihan jawaban pertama" required /><br>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="nama" class="col-sm-2 col-form-label">Pilihan 2 : </label>
-                            <div class="col-sm-10">
-                                <input type="text" name="option2" id="option2" class="form-control"
+                            <label for="nama" class="col-sm-2 col-form-label">Pilihan2:</label>
+                            <div class="wrap-input100 validate-input">
+                                <input type="text" name="option2" id="option2" class="input100"
                                     placeholder="Masukkan pilihan jawaban kedua" required /><br>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary m-1" style="float: right">Buat</button>
-                        <a class="btn btn-secondary ms-2 m-1" style="float: left"
-                            href="{{ route('dashboard') }}">Kembali</a>
+                        <div class="container-contact100-form-btn">
+                            <div class="wrap-contact100-form-btn">
+                                <div class="contact100-form-bgbtn"></div>
+                                <button type="submit" class="contact100-form-btn">
+                                    <span><a>
+                                        Buat<a>
+                                        <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="container-contact100-form-btn">
+                            <div class="wrap-contact100-form-btn">
+                                <div class="contact100-form-bgbtn"></div>
+                                <button class="contact100-form-btn">
+                                
+                                    <span><a href="{{ route('dashboard') }}">
+                                        Kembali
+                                        <i class="fa fa-long-arrow-left m-l-7" aria-hidden="true"></i>
+                                    </a>
+                                    </span>
+                                
+                                </button>
+                            </div>
+                        </div>
                     </table>
                 </form>
             </div>
         </div>
     </div>
 </body>
-
+<!--===============================================================================================-->
+<script src="../../vendor/sb-survey/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../../vendor/sb-survey/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../../vendor/sb-survey/vendor/bootstrap/js/popper.js"></script>
+	<script src="../../vendor/sb-survey/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../../vendor/sb-survey/vendor/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="../../vendor/sb-survey/vendor/daterangepicker/moment.min.js"></script>
+	<script src="../../vendor/sb-survey/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="../../vendor/sb-survey/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="../../vendor/sb-survey/js/main.js"></script>
 </html>

@@ -80,7 +80,7 @@
 						<button class="contact100-form-btn">
 						
 							<span><a href="/survey/{{ $survei->id }}/questions">
-								Tambah
+								Tambah Pertanyaan
 								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
 							</a>
 							</span>

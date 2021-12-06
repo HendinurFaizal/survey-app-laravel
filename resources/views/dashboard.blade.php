@@ -32,7 +32,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard-coba">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard">
                 <div class="sidebar-brand-text mx-3">COBLOS</div>
             </a>
 
@@ -102,19 +102,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
+                                
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
@@ -157,9 +145,13 @@
                                     <td><a href="{{ $survey->publicPath() }}">{{ $survey->publicPath() }}</a></td>
                                     <td>
                                         <a class="btn btn-sm btn-info my-1" style="color: #F6F5FC"
-                                            href="edit-survey/{{ $survey->id }}">🔧Edit</a>
-                                        <a class="btn btn-danger btn-sm" style="color: #F6F5FC"
-                                            href="delete-survey/{{ $survey->id }}">🗑️Hapus</a>
+                                            href="{{ route('view.survey', $survey->id) }}">🔧Edit</a>
+                                        <form action="{{ route('view.survey', $survey->id) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-danger btn-sm" style="color: #F6F5FC"
+                                            onclick="return confirm('Yakin ingin menghapus survey?')">🗑️Hapus</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -187,11 +179,17 @@
                                 <tr>
                                     <td>{{ $vote->id }}</td>
                                     <td>{{ $vote->title }}</td>
-                                    <td><a href="{{ route('view.vote', $survey->id) }}">{{ $vote->question }}</a></td>
+                                    <td><a href="{{ route('view.vote', $vote->id) }}">{{ $vote->question }}</a></td>
                                     <td><a href="{{ $vote->publicPath() }}">{{ $vote->publicPath() }}</a></td>
                                     <td>
-                                        <a class="btn btn-sm btn-info my-1" style="color: #F6F5FC" href="#">🔧Edit</a>
-                                        <a class="btn btn-danger btn-sm" style="color: #F6F5FC" href="#">🗑️Hapus</a>
+                                        <a class="btn btn-sm btn-info my-1" style="color: #F6F5FC" 
+                                        href="{{ route('view.vote', $vote->id) }}">🔧Edit</a>
+                                        <form action="{{ route('view.vote', $vote->id) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-danger btn-sm" style="color: #F6F5FC"
+                                            onclick="return confirm('Yakin ingin menghapus voting?')">🗑️Hapus</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -241,7 +239,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="/">Logout</a>
                 </div>
             </div>
         </div>

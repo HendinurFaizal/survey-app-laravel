@@ -21,9 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('homepage');
-Route::get('/welcome-coba', function () {
-    return view('welcome-coba');
-})->name('homepage');
+
 
 /** Authentication */
 Route::get('/register', [AuthenticationController::class, 'showRegister'])->name('view.register');
@@ -38,6 +36,7 @@ Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('d
 /** Survey */
 Route::get('/survey', [SurveyController::class, 'showCreateSurvey'])->name('view.create.survey');
 Route::get('/survey/{survei}', [SurveyController::class, 'showSurvey'])->name('view.survey');
+Route::delete('/survey/{survei}', [SurveyController::class, 'destroy']);
 Route::get('/survey-response/{survei}', [SurveyController::class, 'showResponseSurvey'])->name('view.response.survey');
 Route::get('/survey/success', [SurveyController::class, 'showSuccessSurvey'])->name('view.success.survey');
 Route::post('/survey', [SurveyController::class, 'createSurvey'])->name('create.survey');
@@ -49,8 +48,9 @@ Route::post('/survey/{id}/questions', [SurveyQuestionController::class, 'createQ
 
 /** Vote */
 Route::get('/vote', [VoteController::class, 'showCreateVote'])->name('view.create.vote');
-Route::get('/vote/{id}', [VoteController::class, 'showVote'])->name('view.vote');
-Route::get('/vote-response/{id}', [VoteController::class, 'showResponseVote'])->name('view.response.vote');
+Route::get('/vote/{vote}', [VoteController::class, 'showVote'])->name('view.vote');
+Route::delete('/vote/{vote}', [VoteController::class, 'destroy']);
+Route::get('/vote-response/{vote}', [VoteController::class, 'showResponseVote'])->name('view.response.vote');
 Route::get('/vote/success', [VoteController::class, 'showSuccessVote'])->name('view.success.vote');
 Route::post('/vote', [VoteController::class, 'createVote'])->name('create.vote');
-Route::post('/vote-response/{id}', [VoteController::class, 'responseVote'])->name('response.vote');
+Route::post('/vote-response/{vote}', [VoteController::class, 'responseVote'])->name('response.vote');

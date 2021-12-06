@@ -35,7 +35,7 @@
 <!--===============================================================================================-->
 </head>
 
-<body style="background-color: rgb(162, 238, 159)">
+<body>
     <div class="container-contact100">
 		<div class="wrap-contact100">
                 <span class="contact100-form-title">Buat Survey Baru</span>

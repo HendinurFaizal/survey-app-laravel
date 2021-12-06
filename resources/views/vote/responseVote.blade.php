@@ -14,56 +14,99 @@
     <meta name="title" content="Kelas A" />
     <meta name="description" content="Tugas Mini Project PPL Kelas A" />
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    <!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="../../vendor/sb-survey/images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/css/util.css">
+        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/css/main.css">
+    <!--===============================================================================================-->
 </head>
 
-<body style="background-color: azure">
-    <br>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-7">
-                <div class="card" style="background-color: rgb(229, 243, 241)">
-                    <h2 class="text-normal fw-bold m-3">{{ $title }}</h2>
-                    <form action="/vote-response/{{ $vote->id }}" , method="POST"
-                        class="navbar-search navbar-search-light form-inline mr-sm-3">
-                        @csrf
-                        @if (Session::has('error'))
-                            <div class="alert alert-danger">
-                                {{ Session::get('error') }}
-                            </div>
-                        @endif
-                        <div class="card-body" style="background-color: rgb(193, 253, 253)">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" class="form-control" id="email"
-                                placeholder="Email Address">
-                        </div>
-                        <br>
-                        <div class="card-header" style="background-color: rgb(193, 253, 253)">{{ $question }}
-                        </div>
-                        <div class="card-body">
-                            <div class="list-group">
-                                @foreach ($options as $option)
-                                    <label for="{{ $option->id }}">
-                                        <li class="list-group-item">
-                                            <input type="radio" name="option" id="{{ $option->id }}"
-                                                value={{ $option->option }}>
-                                            {{ $option->option }}
-                                        </li>
-                                    </label>
-                                @endforeach
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-success m-3" style="float: right">Kirim</button>
-                    </form>
+<body>
+    <div class="container-contact100">
+		<div class="wrap-contact100">
+            <span class="contact100-form-title">
+                {{ $vote->title }}
+            </span>
+            <form action="{{ route('response.vote', $vote->id) }}" , method="POST"
+                class="contact100-form">
+                @csrf
+                @if (Session::has('error'))
+                    <div class="alert alert-danger">
+                        {{ Session::get('error') }}
+                    </div>
+                @endif
+                <div class="wrap-input100">
+                    <label for="email" style="font-weight: bold">Email</label>
+                    <input type="email" name="email" class="input100" id="email"
+                        placeholder="Email Address" value="{{ old('email') }}">
                 </div>
-            </div>
+                <br><br>
+                <div class="card-header">{{ $vote->question }}
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        @foreach ($options as $option)
+                            <label for="{{ $option->id }}">
+                                <li class="list-group-item">
+                                    <input type="radio" name="option" id="{{ $option->id }}"
+                                        value={{ $option->option }}>
+                                    {{ $option->option }}
+                                </li>
+                            </label>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="container-contact100-form-btn">
+                    <div class="wrap-contact100-form-btn">
+                        <div class="contact100-form-bgbtn"></div>
+                        <button type="submit" class="contact100-form-btn">
+                            <span><a>
+                                Kirim<a>
+                                <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+                
         </div>
     </div>
 </body>
-
+<!--===============================================================================================-->
+<script src="../../vendor/sb-survey/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../../vendor/sb-survey/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../../vendor/sb-survey/vendor/bootstrap/js/popper.js"></script>
+	<script src="../../vendor/sb-survey/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../../vendor/sb-survey/vendor/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="../../vendor/sb-survey/vendor/daterangepicker/moment.min.js"></script>
+	<script src="../../vendor/sb-survey/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="../../vendor/sb-survey/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="../../vendor/sb-survey/js/main.js"></script>
 </html>

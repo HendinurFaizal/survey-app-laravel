@@ -58,4 +58,10 @@ class SurveyController extends Controller
 
         return view('survey/successSurvey');
     }
+
+    public function destroy(Survey $survei)
+    {
+        $survei->delete();
+        return redirect('dashboard')->with('success', 'Survey berhasil dihapus!');
+    }
 }

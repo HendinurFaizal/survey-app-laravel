@@ -21,4 +21,9 @@ class DashboardController extends Controller
             return redirect('login')->with('error', '❌ Anda belum login!');
         }
     }
+    public function destroy(Survey $survei)
+    {
+        $survei->delete();
+        return view('dashboard')->with('success', 'Survey berhasil dihapus!');
+    }
 }
