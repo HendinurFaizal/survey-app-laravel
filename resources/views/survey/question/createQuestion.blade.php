@@ -15,33 +15,34 @@
     <meta name="description" content="Tugas Mini Project PPL Kelas A" />
 
     <!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="../../vendor/sb-survey/images/icons/favicon.ico"/>
+    <link rel="icon" type="image/png" href="../../vendor/sb-survey/images/icons/favicon.ico" />
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="../../vendor/sb-survey/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/animate/animate.css">
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/css-hamburgers/hamburgers.min.css">
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/animsition/css/animsition.min.css">
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/select2/select2.min.css">
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/vendor/daterangepicker/daterangepicker.css">
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/css/util.css">
-        <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/css/util.css">
+    <link rel="stylesheet" type="text/css" href="../../vendor/sb-survey/css/main.css">
     <!--===============================================================================================-->
 </head>
 
 <body>
     <div class="container-contact100">
-		<div class="wrap-contact100">
-                <span class="contact100-form-title">
-					Buat Pertanyaan Baru
-				</span>
+        <div class="wrap-contact100">
+            <span class="contact100-form-title">
+                Buat Pertanyaan Baru
+            </span>
             <div class="wrap-input100 validate-input">
                 <br>
                 <form action="/survey/{{ $id->id }}/questions" autocomplete="on" method="post">
@@ -111,10 +112,9 @@
                             <div class="wrap-contact100-form-btn">
                                 <div class="contact100-form-bgbtn"></div>
                                 <button type="submit" class="contact100-form-btn">
-                                    <span><a>
+                                    <a>
                                         Tambah<a>
-                                        <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-                                    </span>
+                                            <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
                                 </button>
                             </div>
                         </div>
@@ -122,13 +122,12 @@
                             <div class="wrap-contact100-form-btn">
                                 <div class="contact100-form-bgbtn"></div>
                                 <button class="contact100-form-btn">
-                                
-                                    <span><a href="{{ route('dashboard') }}">
+
+                                    <a href="{{ route('dashboard') }}">
                                         Kembali
                                         <i class="fa fa-long-arrow-left m-l-7" aria-hidden="true"></i>
                                     </a>
-                                    </span>
-                                
+
                                 </button>
                             </div>
                         </div>
@@ -141,23 +140,24 @@
 <!--===============================================================================================-->
 <script src="../../vendor/sb-survey/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script src="../../vendor/sb-survey/vendor/animsition/js/animsition.min.js"></script>
+<script src="../../vendor/sb-survey/vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="../../vendor/sb-survey/vendor/bootstrap/js/popper.js"></script>
-	<script src="../../vendor/sb-survey/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../vendor/sb-survey/vendor/bootstrap/js/popper.js"></script>
+<script src="../../vendor/sb-survey/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="../../vendor/sb-survey/vendor/select2/select2.min.js"></script>
-	<script>
-		$(".selection-2").select2({
-			minimumResultsForSearch: 20,
-			dropdownParent: $('#dropDownSelect1')
-		});
-	</script>
+<script src="../../vendor/sb-survey/vendor/select2/select2.min.js"></script>
+<script>
+    $(".selection-2").select2({
+        minimumResultsForSearch: 20,
+        dropdownParent: $('#dropDownSelect1')
+    });
+</script>
 <!--===============================================================================================-->
-	<script src="../../vendor/sb-survey/vendor/daterangepicker/moment.min.js"></script>
-	<script src="../../vendor/sb-survey/vendor/daterangepicker/daterangepicker.js"></script>
+<script src="../../vendor/sb-survey/vendor/daterangepicker/moment.min.js"></script>
+<script src="../../vendor/sb-survey/vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-	<script src="../../vendor/sb-survey/vendor/countdowntime/countdowntime.js"></script>
+<script src="../../vendor/sb-survey/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="../../vendor/sb-survey/js/main.js"></script>
+<script src="../../vendor/sb-survey/js/main.js"></script>
+
 </html>

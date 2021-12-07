@@ -91,7 +91,7 @@
                         <div class="contact100-form-bgbtn"></div>
                         <button type="submit" class="contact100-form-btn">
                             <span><a>
-                                Tambah<a>
+                                Kirim<a>
                                 <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
                             </span>
                         </button>

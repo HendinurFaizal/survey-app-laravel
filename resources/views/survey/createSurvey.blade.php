@@ -73,7 +73,7 @@
                             <label for="description" class="col-sm-2 col-form-label">Deskripsi: </label>
                             <div class="wrap-input100 validate-input">
                                 <input type="text" name="description" id="description" class="input100"
-                                    placeholder="Masukkan nama survey" required /><br>
+                                    placeholder="Masukkan deskripsi survey" required /><br>
                             </div>
                         </div>
                         <div class="container-contact100-form-btn">

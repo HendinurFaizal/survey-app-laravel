@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>COBLOS - Dashboard</title>
+    <title>COBLOS | Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/sb-admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -53,7 +53,7 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Bikin Survey</span></a>
             </li>
-           
+        
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('view.create.vote') }}">
                     <i class="fas fa-fw fa-table"></i>
@@ -66,8 +66,6 @@
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li> --}}
-
-
 
         </ul>
         <!-- End of Sidebar -->
@@ -86,11 +84,8 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-
-
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
